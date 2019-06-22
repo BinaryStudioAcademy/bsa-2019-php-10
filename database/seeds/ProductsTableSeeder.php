@@ -24,5 +24,13 @@ class ProductsTableSeeder extends Seeder
             'name'  => 'Apple iPad',
             'price' => '499.99'
         ]);
+        DB::table('products')->insert([
+            'name'  => 'Apple Watch',
+            'price' => '299.99'
+        ]);
+        DB::table('products')->insert([
+            'name'  => 'Apple Airpods',
+            'price' => '99.99'
+        ]);
     }
 }
