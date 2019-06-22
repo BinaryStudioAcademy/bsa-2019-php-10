@@ -11,14 +11,4 @@
 |
 */
 
-use \Illuminate\Support\Facades\DB;
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/market', function () {
-    $products = DB::table('products')->get();
-
-    return view('market', compact('products'));
-});
+Route::get('/', 'WebController@showMarket');
