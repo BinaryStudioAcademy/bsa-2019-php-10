@@ -10,4 +10,9 @@ class ProductRepository
     {
         return Product::all();
     }
+
+    public function findById(int $id): ?Product
+    {
+        return Product::find($id);
+    }
 }

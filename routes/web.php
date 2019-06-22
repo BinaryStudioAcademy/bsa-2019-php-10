@@ -11,4 +11,10 @@
 |
 */
 
-Route::get('/', 'WebController@showMarket');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('market', 'WebController@showMarket');
+
+Route::get('market/{id}', 'WebController@showProduct');

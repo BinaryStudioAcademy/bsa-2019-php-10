@@ -17,4 +17,12 @@ class MarketService
     {
         return $this->productRepository->findAll();
     }
+
+    public function getProductById(int $id)
+    {
+        $product = $this->productRepository->findById($id);
+        if (!$product)
+            throw new \Exception(`No product with id: $id`);
+        return $product;
+    }
 }

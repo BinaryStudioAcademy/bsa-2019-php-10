@@ -17,4 +17,13 @@ class WebController extends Controller
         $products = $this->marketService->getProductList();
         return view('market', compact('products'));
     }
+
+    public function showProduct(int $id) {
+        try {
+            $product = $this->marketService->getProductById($id);
+        } catch (\Exception $e) {
+            return view('welcome');
+        }
+        return view('product', compact('product'));
+    }
 }
