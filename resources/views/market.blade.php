@@ -81,14 +81,14 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Market
+            {{ config('app.name', 'Laravel') }}
         </div>
 
         <ul>
 
         @foreach($products as $product)
 
-                <li><a href="{{ url()->current() }}/{{ $product->id }}">{{ $product->name }} : {{ $product->price }}</a></li>
+                <li><a href="{{ url()->current() }}/items/{{ $product->id }}">{{ $product->name }} : {{ $product->price }}</a></li>
 
         @endforeach
 

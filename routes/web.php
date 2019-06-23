@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WebController@showMarket');
 
-Route::get('market', 'WebController@showMarket');
+Route::get('items/{id}', 'WebController@showProduct');
 
-Route::get('market/{id}', 'WebController@showProduct');
+Route::get('items/add', 'WebController@addProductForm')->name('add');
+
+Route::post('items', 'WebController@storeProduct')->name('store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
