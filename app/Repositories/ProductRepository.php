@@ -15,4 +15,10 @@ class ProductRepository
     {
         return Product::find($id);
     }
+
+    public function store(Product $product): Product
+    {
+        $product->save();
+        return $product;
+    }
 }

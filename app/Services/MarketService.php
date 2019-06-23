@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Entities\Product;
 use App\Repositories\ProductRepository;
+use Illuminate\Http\Request;
 
 class MarketService
 {
@@ -24,5 +26,13 @@ class MarketService
         if (!$product)
             throw new \Exception(`No product with id: $id`);
         return $product;
+    }
+
+    public function storeProduct(Request $request) {
+        $product = new Product([
+            'name'  => $request->input('product_name'),
+            'price' => $request->input('product_price')
+        ]);
+        $this->productRepository->store($product);
     }
 }

@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'WebController@showMarket');
-
-Route::get('items/{id}', 'WebController@showProduct');
+Route::get('/', 'WebController@showMarket')->name('main');
 
 Route::get('items/add', 'WebController@addProductForm')->name('add');
+
+Route::get('items/{id}', 'WebController@showProduct');
 
 Route::post('items', 'WebController@storeProduct')->name('store');
 

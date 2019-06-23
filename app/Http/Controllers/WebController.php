@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\MarketService;
+use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
@@ -22,8 +23,17 @@ class WebController extends Controller
         try {
             $product = $this->marketService->getProductById($id);
         } catch (\Exception $e) {
-            return view('welcome');
+            return redirect()->route('main');
         }
         return view('product', compact('product'));
+    }
+
+    public function addProductForm() {
+        return view('addProductForm');
+    }
+
+    public function storeProduct(Request $request) {
+        $this->marketService->storeProduct($request);
+        return redirect()->route('main');
     }
 }
