@@ -36,4 +36,9 @@ class WebController extends Controller
         $this->marketService->storeProduct($request);
         return redirect()->route('main');
     }
+
+    public function deleteProduct(Request $request) {
+        $this->marketService->deleteProduct($request);
+        return redirect()->route('main');
+    }
 }

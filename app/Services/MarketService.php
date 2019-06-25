@@ -35,4 +35,9 @@ class MarketService
         ]);
         $this->productRepository->store($product);
     }
+
+    public function deleteProduct(Request $request) {
+        $product = $this->getProductById($request->id);
+        $this->productRepository->delete($product);
+    }
 }

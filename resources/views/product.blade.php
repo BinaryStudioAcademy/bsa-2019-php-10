@@ -84,6 +84,10 @@
             {{ $product->name }}
         </div>
 
+        <form method="POST" action="{{ route('delete', ['id' => $product->id]) }}">
+            @csrf
+            <button type="submit">Delete</button>
+        </form>
         <a href="{{ url()->previous() }}">Back</a>
 
     </div>

@@ -19,6 +19,8 @@ Route::get('items/{id}', 'WebController@showProduct');
 
 Route::post('items', 'WebController@storeProduct')->name('store');
 
+Route::post('items/{id}', 'WebController@deleteProduct')->name('delete');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

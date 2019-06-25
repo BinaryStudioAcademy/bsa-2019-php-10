@@ -21,4 +21,9 @@ class ProductRepository
         $product->save();
         return $product;
     }
+
+    public function delete(Product $product)
+    {
+        $product->delete();
+    }
 }
