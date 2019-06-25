@@ -58,6 +58,11 @@
             text-transform: uppercase;
         }
 
+        .list-items {
+            list-style: none;
+            margin-bottom: 7px;
+        }
+
         .m-b-md {
             margin-bottom: 30px;
         }
@@ -88,7 +93,11 @@
 
         @foreach($products as $product)
 
-                <li><a href="{{ url()->current() }}/items/{{ $product->id }}">{{ $product->name }} : {{ $product->price }}</a></li>
+                <li class="list-items">
+                    <a href="{{ url()->current() }}/items/{{ $product->id }}">
+                        {{ $product->name }} : {{ $product->price }} $
+                    </a>
+                </li>
 
         @endforeach
 

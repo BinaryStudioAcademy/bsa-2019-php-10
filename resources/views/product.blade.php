@@ -61,6 +61,10 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        .delete-btn {
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -84,10 +88,13 @@
             {{ $product->name }}
         </div>
 
-        <form method="POST" action="{{ route('delete', ['id' => $product->id]) }}">
-            @csrf
-            <button type="submit">Delete</button>
-        </form>
+        <div class="delete-btn">
+            <form method="POST" action="{{ route('delete', ['id' => $product->id]) }}">
+                @csrf
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+
         <a href="{{ url()->previous() }}">Back</a>
 
     </div>

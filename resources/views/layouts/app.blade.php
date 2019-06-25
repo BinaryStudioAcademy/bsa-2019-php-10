@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @auth
-                            <li class="nav-item">
+                            <li class="nav-item" style="padding-top: 3px">
                                 <a class="nav-link" href="{{ route('add') }}">{{ __('Add product') }}</a>
                             </li>
                         @endauth
