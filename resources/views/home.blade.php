@@ -14,7 +14,25 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @if(count($products))
+                            <h5>Your products:</h5>
+
+                        <ul>
+                        @foreach($products as $product)
+
+                            <li>
+                                <a href="{{ route('show', ['id' => $product->id]) }}">
+                                    {{ $product->name }} : {{ $product->price }}
+                                </a>
+                            </li>
+
+                        @endforeach
+                        </ul>
+
+                    @else
+                        You dont have any products!
+                    @endif
+
                 </div>
             </div>
         </div>

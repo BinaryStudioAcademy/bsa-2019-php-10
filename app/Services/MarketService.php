@@ -29,6 +29,11 @@ class MarketService
         return $product;
     }
 
+    public function getProductsByUserId(int $id)
+    {
+        return $this->productRepository->findByUserId($id);
+    }
+
     public function storeProduct(Request $request) {
         $product = new Product([
             'user_id'   => Auth::user()->id,

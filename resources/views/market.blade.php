@@ -94,7 +94,7 @@
         @foreach($products as $product)
 
                 <li class="list-items">
-                    <a href="{{ url()->current() }}/items/{{ $product->id }}">
+                    <a href="{{ route('show', ['id' => $product->id]) }}">
                         {{ $product->name }} : {{ $product->price }} $
                     </a>
                 </li>

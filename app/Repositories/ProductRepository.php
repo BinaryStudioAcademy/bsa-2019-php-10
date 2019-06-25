@@ -16,6 +16,11 @@ class ProductRepository
         return Product::find($id);
     }
 
+    public function findByUserId(int $id)
+    {
+        return Product::where('user_id', $id)->get();
+    }
+
     public function store(Product $product): Product
     {
         $product->save();

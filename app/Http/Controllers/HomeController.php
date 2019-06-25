@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\MarketService;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    private $marketService;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MarketService $marketService)
     {
         $this->middleware('auth');
+        $this->marketService = $marketService;
     }
 
     /**
@@ -23,6 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $products = $this->marketService->getProductsByUserId($user->id);
+
+        return view('home', compact('products'));
     }
 }
