@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Entities\Product;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MarketService
 {
@@ -30,8 +31,9 @@ class MarketService
 
     public function storeProduct(Request $request) {
         $product = new Product([
-            'name'  => $request->input('product_name'),
-            'price' => $request->input('product_price')
+            'user_id'   => Auth::user()->id,
+            'name'      => $request->input('product_name'),
+            'price'     => $request->input('product_price')
         ]);
         $this->productRepository->store($product);
     }
