@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WebController@showMarket')->name('main');
+Route::get('/{items?}', 'WebController@showMarket')->name('main');
 
 Route::get('items/add', 'WebController@addProductForm')->name('add');
 
