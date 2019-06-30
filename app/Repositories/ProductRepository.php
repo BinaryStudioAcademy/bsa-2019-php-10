@@ -3,8 +3,9 @@
 namespace App\Repositories;
 
 use App\Entities\Product;
+use App\Repositories\Interfaces\IProductRepository;
 
-class ProductRepository
+class ProductRepository implements IProductRepository
 {
     public function findAll()
     {
@@ -16,9 +17,9 @@ class ProductRepository
         return Product::find($id);
     }
 
-    public function findByUserId(int $id)
+    public function findByUserId(int $userId)
     {
-        return Product::where('user_id', $id)->get();
+        return Product::where('user_id', $userId)->get();
     }
 
     public function store(Product $product): Product

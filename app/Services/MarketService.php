@@ -4,10 +4,11 @@ namespace App\Services;
 
 use App\Entities\Product;
 use App\Repositories\ProductRepository;
+use App\Services\Interfaces\IMarketService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MarketService
+class MarketService implements IMarketService
 {
     private $productRepository;
 
@@ -29,9 +30,9 @@ class MarketService
         return $product;
     }
 
-    public function getProductsByUserId(int $id)
+    public function getProductsByUserId(int $userId)
     {
-        return $this->productRepository->findByUserId($id);
+        return $this->productRepository->findByUserId($userId);
     }
 
     public function storeProduct(Request $request) {
@@ -45,6 +46,8 @@ class MarketService
 
     public function deleteProduct(Request $request) {
         $product = $this->getProductById($request->id);
+        if (!$product)
+            throw new \Exception(`No product with id: $request->id`);
         $this->productRepository->delete($product);
     }
 }
