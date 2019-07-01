@@ -25,6 +25,7 @@ class WebController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('main');
         }
+
         return view('product', compact('product'));
     }
 

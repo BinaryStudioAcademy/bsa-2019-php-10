@@ -6,7 +6,6 @@ use App\Entities\Product;
 use App\Repositories\ProductRepository;
 use App\Services\Interfaces\IMarketService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class MarketService implements IMarketService
 {
@@ -25,8 +24,10 @@ class MarketService implements IMarketService
     public function getProductById(int $id)
     {
         $product = $this->productRepository->findById($id);
-        if (!$product)
+
+        if (!$product) {
             throw new \Exception(`No product with id: $id`);
+        }
         return $product;
     }
 
@@ -41,13 +42,16 @@ class MarketService implements IMarketService
             'name'      => $request->input('product_name'),
             'price'     => $request->input('product_price')
         ]);
+
         return $this->productRepository->store($product);
     }
 
     public function deleteProduct(Request $request) {
         $product = $this->getProductById($request->id);
-        if (!$product)
+
+        if (!$product) {
             throw new \Exception(`No product with id: $request->id`);
+        }
         $this->productRepository->delete($product);
     }
 }
