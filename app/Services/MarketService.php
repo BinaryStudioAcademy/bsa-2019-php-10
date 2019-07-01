@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Entities\Product;
-use App\Repositories\ProductRepository;
-use App\Services\Interfaces\IMarketService;
 use Illuminate\Http\Request;
+use App\Services\Interfaces\IMarketService;
+use App\Repositories\Interfaces\IProductRepository as ProductRepository;
 
 class MarketService implements IMarketService
 {
@@ -28,6 +28,7 @@ class MarketService implements IMarketService
         if (!$product) {
             throw new \Exception(`No product with id: $id`);
         }
+
         return $product;
     }
 

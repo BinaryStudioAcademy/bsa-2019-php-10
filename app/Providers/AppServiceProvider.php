@@ -17,15 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(IProductRepository::class, function () {
-            return new ProductRepository();
-        });
+        $this->app->bind(IProductRepository::class, ProductRepository::class);
 
-        $this->app->bind(IMarketService::class, function ($app) {
-            return new MarketService(
-                $app->make(IProductRepository::class)
-            );
-        });
+        $this->app->bind(IMarketService::class, MarketService::class);
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\MarketService;
 use Illuminate\Http\Request;
+use App\Services\Interfaces\IMarketService as MarketService;
 
 class WebController extends Controller
 {
@@ -16,6 +16,7 @@ class WebController extends Controller
 
     public function showMarket() {
         $products = $this->marketService->getProductList();
+
         return view('market', compact('products'));
     }
 
@@ -35,11 +36,13 @@ class WebController extends Controller
 
     public function storeProduct(Request $request) {
         $this->marketService->storeProduct($request);
+
         return redirect()->route('main');
     }
 
     public function deleteProduct(Request $request) {
         $this->marketService->deleteProduct($request);
+
         return redirect()->route('main');
     }
 }
