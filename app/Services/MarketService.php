@@ -39,7 +39,7 @@ class MarketService implements IMarketService
 
     public function storeProduct(Request $request) {
         $product = new Product([
-            'user_id'   => 0,
+            'user_id'   => 1,
             'name'      => $request->input('product_name'),
             'price'     => $request->input('product_price')
         ]);
