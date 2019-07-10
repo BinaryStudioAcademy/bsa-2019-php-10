@@ -26,7 +26,7 @@ class ApiController extends Controller
         // todo
     }
 
-    public function delete(int $id) {
+    public function delete(Request $request) {
         // todo
     }
 }
