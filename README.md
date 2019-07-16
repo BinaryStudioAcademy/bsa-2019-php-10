@@ -1,4 +1,4 @@
-# PHPUnit
+# PHP_Unit
 Binary Studio Academy 2019, PHP, Unit Testing with PHP_Unit.
 
 ### Installing
@@ -47,7 +47,7 @@ php artisan migrate:fresh --seed
         "user_id": <int>
     },
     ...
-]}
+]
 ```
 
 * Добавление товара: `POST /api/items`<br>
