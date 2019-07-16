@@ -6,7 +6,7 @@ namespace App\Repositories\Interfaces;
 
 use App\Entities\Product;
 
-interface IProductRepository
+interface ProductRepositoryInterface
 {
     public function findAll();
 

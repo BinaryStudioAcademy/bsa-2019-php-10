@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Entities\Product;
 use Illuminate\Http\Request;
-use App\Repositories\Interfaces\IProductRepository as ProductRepository;
+use App\Repositories\Interfaces\ProductRepositoryInterface as ProductRepository;
 
 class MarketService
 {
