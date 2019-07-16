@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Entities\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Repositories\Interfaces\ProductRepositoryInterface as ProductRepository;
 
@@ -15,12 +16,12 @@ class MarketService
         $this->productRepository = $productRepository;
     }
 
-    public function getProductList()
+    public function getProductList(): Collection
     {
         return $this->productRepository->findAll();
     }
 
-    public function getProductById(int $id)
+    public function getProductById(int $id): ?Product
     {
         $product = $this->productRepository->findById($id);
 
@@ -31,12 +32,13 @@ class MarketService
         return $product;
     }
 
-    public function getProductsByUserId(int $userId)
+    public function getProductsByUserId(int $userId): Collection
     {
         return $this->productRepository->findByUserId($userId);
     }
 
-    public function storeProduct(Request $request) {
+    public function storeProduct(Request $request): Product
+    {
         $product = new Product([
             'user_id'   => 1,
             'name'      => $request->input('product_name'),
@@ -46,7 +48,8 @@ class MarketService
         return $this->productRepository->store($product);
     }
 
-    public function deleteProduct(Request $request) {
+    public function deleteProduct(Request $request): void
+    {
         $product = $this->getProductById($request->id);
 
         if (!$product) {
