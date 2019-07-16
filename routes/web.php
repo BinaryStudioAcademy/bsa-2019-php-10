@@ -23,4 +23,4 @@ Route::get('/{items?}', 'MarketWebController@showMarket')->name('main');
 
 Route::post('items', 'MarketWebController@storeProduct')->name('store');
 
-Route::post('items/{id}', 'MarketWebController@deleteProduct')->name('delete');
+Route::delete('items/{id}', 'MarketWebController@deleteProduct')->name('delete');

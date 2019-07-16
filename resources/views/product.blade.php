@@ -91,6 +91,7 @@
         <div class="delete-btn">
             <form method="POST" action="{{ route('delete', ['id' => $product->id]) }}">
                 @csrf
+                {{ method_field('delete') }}
                 <button type="submit">Delete</button>
             </form>
         </div>
