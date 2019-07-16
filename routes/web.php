@@ -15,12 +15,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('items/add', 'WebController@addProductForm')->name('add');
+Route::get('items/add', 'MarketWebController@addProductForm')->name('add');
 
-Route::get('items/{id}', 'WebController@showProduct')->name('show');
+Route::get('items/{id}', 'MarketWebController@showProduct')->name('show');
 
-Route::get('/{items?}', 'WebController@showMarket')->name('main');
+Route::get('/{items?}', 'MarketWebController@showMarket')->name('main');
 
-Route::post('items', 'WebController@storeProduct')->name('store');
+Route::post('items', 'MarketWebController@storeProduct')->name('store');
 
-Route::post('items/{id}', 'WebController@deleteProduct')->name('delete');
+Route::post('items/{id}', 'MarketWebController@deleteProduct')->name('delete');

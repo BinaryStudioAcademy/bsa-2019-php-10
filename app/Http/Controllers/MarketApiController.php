@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\Interfaces\IMarketService as MarketService;
 
-class ApiController extends Controller
+class MarketApiController extends Controller
 {
     private $marketService;
 

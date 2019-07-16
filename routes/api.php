@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('api')->group(function () {
-    Route::get('/items', 'ApiController@showList');
-    Route::post('/items', 'ApiController@store');
-    Route::get('/items/{id}', 'ApiController@showProduct');
-    Route::post('/items/{id}', 'ApiController@delete');
+    Route::get('/items', 'MarketApiController@showList');
+    Route::post('/items', 'MarketApiController@store');
+    Route::get('/items/{id}', 'MarketApiController@showProduct');
+    Route::post('/items/{id}', 'MarketApiController@delete');
 });
