@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\Interfaces\IMarketService as MarketService;
+use App\Services\MarketService;
 
 class MarketApiController extends Controller
 {
