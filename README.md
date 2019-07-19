@@ -2,8 +2,8 @@
 Binary Studio Academy 2019, PHP, Unit Testing with PHP_Unit.
 
 ### Installing
-git clone [PHP_Unit](https://github.com/vlvereta/PHP_Unit/tree/master)
 ```
+git clone https://github.com/vlvereta/PHP_Unit.git
 cd PHP_Unit
 cp .env.example .env
 composer install
