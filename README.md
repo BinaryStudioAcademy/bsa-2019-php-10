@@ -2,9 +2,9 @@
 Binary Studio Academy 2019, PHP, Unit Testing with PHP_Unit.
 
 ### Installing
+git clone [PHP_Unit](https://github.com/vlvereta/PHP_Unit/tree/master)
 ```
-git clone <link to repository>
-cd <repository_name>
+cd PHP_Unit
 cp .env.example .env
 composer install
 php artisan key:generate
@@ -31,7 +31,7 @@ php artisan migrate:fresh --seed
 **Task #3: тестирование маршрутов и работы приложения в целом** *(4 бала)*  
 В данной части задания необходимо протестировать работу приложения посредством предоставляемых фреймворком возможностей. 
 Используя написанную логику для отображения, добавления и удаления товаров нужно протестировать их работу. Но сначала 
-нужно прописать работу [ApiController](https://github.com/vlvereta/PHPUnit/blob/master/app/Http/Controllers/ApiController.php).  
+нужно прописать работу [MarketApiController](https://github.com/vlvereta/PHP_Unit/blob/master/app/Http/Controllers/MarketApiController.php).  
 Работаем со следующим шейпом данных:
 
 * Отображение списка товаров: `GET /api/items`<br>
@@ -92,20 +92,11 @@ php artisan migrate:fresh --seed
 
 * Удаления товара: `DELETE /api/items/{id}`<br>
 `Content-type: application/json`<br>
-`Status code: 201`<br>
+`Status code: 204`<br>
  -> `Request:`<br>
 ```
 {
     "id": <int>
-}
-```
- -> `Response data:`<br>
-```
-{
-    "id": <int>,
-    "name": <string>,
-    "price": <string>,
-    "user_id": <int>
 }
 ```
 
