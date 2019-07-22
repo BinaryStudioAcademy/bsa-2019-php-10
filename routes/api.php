@@ -17,9 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('api')->group(function () {
-    Route::get('/items', 'MarketApiController@showList');
-    Route::post('/items', 'MarketApiController@store');
-    Route::get('/items/{id}', 'MarketApiController@showProduct');
-    Route::delete('/items/{id}', 'MarketApiController@delete');
-});
+Route::get('/items', 'MarketApiController@showList');
+Route::post('/items', 'MarketApiController@store');
+Route::get('/items/{id}', 'MarketApiController@showProduct');
+Route::delete('/items/{id}', 'MarketApiController@delete');
