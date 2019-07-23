@@ -4,7 +4,7 @@ Binary Studio Academy 2019, PHP, Unit Testing with PHP_Unit.
 ### Installing
 ```
 git clone https://github.com/BinaryStudioAcademy/bsa-2019-php-10.git
-cd PHP_Unit
+cd bsa-2019-php-10
 cp .env.example .env
 composer install
 php artisan key:generate
